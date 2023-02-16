@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import './Class.scss';
 
+
 function Class(props) {
     const {name, ID} = props;
     console.log(ID)
