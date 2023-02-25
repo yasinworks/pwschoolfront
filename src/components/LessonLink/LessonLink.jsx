@@ -1,7 +1,7 @@
 import React from 'react';
-import "./Lesson.scss";
+import "./LessonLink.scss";
 
-function Lesson(props) {
+function LessonLink(props) {
     const {title, date} = props
     return (
         <div className="lesson">
@@ -12,4 +12,4 @@ function Lesson(props) {
     );
 }
 
-export default Lesson;
+export default LessonLink;

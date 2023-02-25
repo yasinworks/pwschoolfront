@@ -22,7 +22,7 @@ export const getLessonsByClassId = (id, accessCode) => (dispatch) => {
     dispatch({ type: LOAD_LESSONS_BY_CLASS_ID_REQUEST, payload: true });
     axios(`http://localhost:4444/api/lessons/class?ID=${id}&accessCode=${accessCode || 'No access code'}`).then((res) => {
         console.log(res.data)
-        dispatch({ type: LOAD_LESSONS_BY_CLASS_ID_SUCCESS, payload: res.data });
+        dispatch({ type: LOAD_LESSONS_BY_CLASS_ID_SUCCESS, payload: res.data.lessons });
     }).catch(err => {
         // console.log(err.response.data.message)
         dispatch({type: LOAD_LESSONS_BY_CLASS_ID_ERROR, payload: err.response.data.message})

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import Lesson from "../Lesson/Lesson";
+import LessonLink from "../LessonLink/LessonLink";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getLessonsByClassId} from "../../store/operations";
@@ -16,13 +16,13 @@ function Lessons(props) {
         dispatch(getLessonsByClassId(classId))
     }, [dispatch])
 
-    if (isLoading) {
-        return <div>Loading...</div>
-    } else {
-        lessons.map((lesson) => {
-            return(<Lesson title={lesson.title}/>)
-        })
-    }
+    return (
+        <>
+            {isLoading ? <div>Loading...</div> :
+                lessons.map((lesson, key) => <LessonLink key={key} title={lesson.title} date={lesson.date}/>)
+            }
+        </>
+    )
 }
 
 export default Lessons;
