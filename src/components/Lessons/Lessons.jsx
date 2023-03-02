@@ -11,15 +11,17 @@ function Lessons(props) {
     const {classId} = params;
     const isLoading = useSelector(areLessonsLoading)
     const lessons = useSelector(selectLessonsByClassId)
+    console.log(lessons)
 
     useEffect(() => {
         dispatch(getLessonsByClassId(classId))
-    }, [dispatch])
+    }, [dispatch, classId])
+
 
     return (
         <>
             {isLoading ? <div>Loading...</div> :
-                lessons.map((lesson, key) => <LessonLink key={key} title={lesson.title} date={lesson.date}/>)
+                lessons.map((lesson, key) => <LessonLink key={key} title={lesson.title} date={lesson.date} id={lesson._id}/>)
             }
         </>
     )

@@ -24,7 +24,7 @@ export const getLessonsByClassId = (id, accessCode) => (dispatch) => {
         console.log(res.data)
         dispatch({ type: LOAD_LESSONS_BY_CLASS_ID_SUCCESS, payload: res.data.lessons });
     }).catch(err => {
-        // console.log(err.response.data.message)
+        console.log(err.response.data.message)
         dispatch({type: LOAD_LESSONS_BY_CLASS_ID_ERROR, payload: err.response.data.message})
     });
 };
