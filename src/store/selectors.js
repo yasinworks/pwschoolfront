@@ -1,3 +1,4 @@
+export const isMenuActive = (state) => state.isMenuActive;
 export const isError = (state) => state.isError;
 export const getErrMessage = (state) => state.errMessage;
 export const selectClasses = (state) => state.classes.data;

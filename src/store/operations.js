@@ -4,10 +4,14 @@ import {
     LOAD_CLASSES_SUCCESS,
     LOAD_LESSONS_BY_CLASS_ID_REQUEST,
     LOAD_LESSONS_BY_CLASS_ID_SUCCESS,
-    LOAD_LESSONS_BY_CLASS_ID_ERROR
+    LOAD_LESSONS_BY_CLASS_ID_ERROR,
+    TOGGLE_USER_MENU
 } from "./types";
 import axios from "axios";
 
+export const toggleUserMenu = () => (dispatch) => {
+    dispatch({type: TOGGLE_USER_MENU})
+}
 export const getClasses = () => (dispatch) => {
     dispatch({ type: LOAD_CLASSES_REQUEST, payload: true });
     axios('http://localhost:4444/api/classes/list').then((res) => {
